@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bhaiya Ki Class - Home</title>
+
+  <!-- FontAwesome for YouTube icon -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fdfdfd;
+      color: #222;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      background-color: #004466;
+      padding: 1rem 2rem;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .navbar .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar a:hover,
+    .navbar a:focus {
+      color: #80d8ff;
+      outline: none;
+    }
+
+    /* Navbar YouTube link */
+    .navbar ul li a.youtube-link {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: #ff0000;
+      font-weight: 700;
+      transition: color 0.3s ease;
+    }
+
+    .navbar ul li a.youtube-link:hover,
+    .navbar ul li a.youtube-link:focus {
+      color: #e60000;
+      text-decoration: underline;
+      outline: none;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      padding: 6rem 2rem 8rem;
+      background: radial-gradient(circle at center, #e0f7fa, #fff);
+      transition: transform 0.3s ease;
+      will-change: transform;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      margin: 0;
+      color: #0077b6;
+      font-weight: 700;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin-top: 1rem;
+      color: #333;
+      font-weight: 600;
+    }
+
+    .hero .highlight {
+      color: #0077b6;
+      font-weight: bold;
+    }
+
+    .hero .btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.8rem 1.5rem;
+      background-color: #0077b6;
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 119, 182, 0.4);
+    }
+
+    .hero .btn:hover,
+    .hero .btn:focus {
+      transform: scale(1.05);
+      outline: none;
+    }
+
+    .floating-shapes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .shape {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: rgba(0, 119, 182, 0.3);
+      border-radius: 50%;
+      filter: drop-shadow(0 0 4px rgba(0, 119, 182, 0.5));
+      animation: float 6s ease-in-out infinite;
+      mix-blend-mode: screen;
+    }
+
+    .shape:nth-child(2) {
+      top: 20%;
+      left: 10%;
+      animation-delay: 1s;
+      width: 70px;
+      height: 70px;
+    }
+    .shape:nth-child(3) {
+      top: 60%;
+      left: 20%;
+      animation-delay: 2s;
+      width: 40px;
+      height: 40px;
+    }
+    .shape:nth-child(4) {
+      top: 30%;
+      left: 70%;
+      animation-delay: 3s;
+      width: 60px;
+      height: 60px;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-25px) rotate(15deg);
+      }
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+    }
+
+    /* YouTube button below hero */
+    .youtube-cta {
+      background-color: #ff0000;
+      color: white !important;
+      margin-top: 2rem;
+      padding: 0.9rem 2.2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 6px 15px rgba(255, 0, 0, 0.6);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      user-select: none;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    .youtube-cta:hover,
+    .youtube-cta:focus {
+      background-color: #cc0000;
+      box-shadow: 0 10px 25px rgba(204, 0, 0, 0.8);
+      transform: scale(1.05);
+      outline: none;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem;
+      background-color: #f0f8ff;
+    }
+
+    .feature-card {
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      padding: 1.5rem;
+      width: 280px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+    }
+
+    .feature-card:hover,
+    .feature-card:focus {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 8px 20px rgba(0, 119, 182, 0.3);
+      outline: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #004466;
+      color: white;
+      box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
+      user-select: none;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .feature-card {
+        width: 100%;
+      }
+      .navbar ul {
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar" role="banner">
+    <div class="logo" aria-label="Bhaiya Ki Class Logo">📘 Bhaiya Ki Class</div>
+    <nav role="navigation" aria-label="Primary Navigation">
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>
+          <a
+            href="https://youtube.com/@bhaiyakiclass9and10?si=_mO9H5niM0C95TJa"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Bhaiya Ki Class YouTube Channel"
+            class="youtube-link"
+            ><i class="fab fa-youtube"></i> YouTube</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section with 3D animation -->
+  <section class="hero" id="hero">
+    <div class="floating-shapes" aria-hidden="true">
+      <div class="shape"></div>
+      <div class="shape"></div>
+      <div class="shape"></div>
+    </div>
+    <h1>Welcome to <span class="highlight">Bhaiya Ki Class</span></h1>
+    <p>Class 9 & 10 ke concepts ab easy bhaiya style mein! 🎓📖</p>
+    <a href="courses.html" class="btn" role="button">📚 Explore Courses</a>
+    <br />
+    <a
+      href="https://youtube.com/@bhaiyakiclass9and10?si=_mO9H5niM0C95TJa"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn youtube-cta"
+      aria-label="Visit Bhaiya Ki Class YouTube Channel"
+    >
+      <i class="fab fa-youtube"></i> ▶️ Subscribe on YouTube
+    </a>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" aria-label="Key features">
+    <article class="feature-card" tabindex="0">
+      <h3>🎯 Clear Concepts</h3>
+      <p>Ratta nahi, samajh ke padho! Real-life examples ke saath.</p>
+    </article>
+    <article class="feature-card" tabindex="0">
+      <h3>🧠 Doubt Support</h3>
+      <p>Har hafte doubt-solving sessions + direct chat with Bhaiya!</p>
+    </article>
+    <article class="feature-card" tabindex="0">
+      <h3>📦 Full Syllabus</h3>
+      <p>Science & Math ke complete recorded + live classes available.</p>
+    </article>
+  </section>
+
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <p>&copy; 2025 Bhaiya Ki Class | Made with ❤️ for students</p>
+  </footer>
+
+  <script>
+    // 3D tilt effect on hero section
+    const hero = document.getElementById('hero');
+    hero.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 30;
+      const y = (e.clientY / window.innerHeight - 0.5) * 30;
+      hero.style.transform = `rotateX(${y * -0.4}deg) rotateY(${x * 0.4}deg) scale(1.03)`;
+    });
+
+    hero.addEventListener('mouseleave', () => {
+      hero.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
+    });
+  </script>
+</body>
+</html>

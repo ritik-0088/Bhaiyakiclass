@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bhaiya Ki Class - Contact</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fdfdfd;
+      color: #222;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      background-color: #004466;
+      padding: 1rem 2rem;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      padding: 6rem 2rem;
+      background: linear-gradient(145deg, #e0f7fa, #fff);
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      transition: transform 0.3s ease;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 0;
+      color: #333;
+      margin-bottom: 3rem;
+    }
+
+    .contact-info {
+      background: #f0f8ff;
+      max-width: 600px;
+      margin: 0 auto 4rem;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #004466;
+    }
+
+    .contact-info strong {
+      color: #0077b6;
+    }
+
+    .whatsapp-link {
+      display: inline-block;
+      margin-top: 1.5rem;
+      background-color: #25d366;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .whatsapp-link:hover {
+      background-color: #1ebe57;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #004466;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">📘 Bhaiya Ki Class</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="hero">
+    <h1>Contact Bhaiya Ki Class</h1>
+    <p>Koi bhi sawaal ho toh bina jhijhak puchho! 🙌</p>
+
+    <div class="contact-info">
+      <p><strong>WhatsApp:</strong> +91 88825 49001</p>
+      <a href="https://wa.me/918882549001" target="_blank" class="whatsapp-link">💬 Chat on WhatsApp</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Bhaiya Ki Class | Made with ❤️ for students</p>
+  </footer>
+
+  <script>
+    const hero = document.getElementById('hero');
+    hero.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 20;
+      const y = (e.clientY / window.innerHeight - 0.5) * 20;
+      hero.style.transform = `rotateX(${y * -0.3}deg) rotateY(${x * 0.3}deg)`;
+    });
+
+    hero.addEventListener('mouseleave', () => {
+      hero.style.transform = `rotateX(0deg) rotateY(0deg)`;
+    });
+  </script>
+</body>
+</html>
